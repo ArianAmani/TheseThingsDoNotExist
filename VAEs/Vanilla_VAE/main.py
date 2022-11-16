@@ -20,7 +20,13 @@ import os
 @click.option('--output_dir', default='output')
 @click.option('--weights_path', default='checkpoint/vae_', help="path to encoder and decoder weights without 'encoder' 'decoder' extensions")
 def main(to_train, epochs, learning_rate, device, save_dir, save_name, to_sample, num_samples, output_dir, weights_path):
+    '''
+    Train or sample from a VAE
+    example: 
+    python main.py --train --epochs=20 --learning_rate=0.0005 --device=gpu --save_dir=checkpoint --save_name=vae
 
+    python main.py --sample --num_samples=10 --device=gpu --output_dir=output --weights_path=checkpoint/vae_
+    '''
     if to_train:
         print('Training VAE:')
         print('Loading dataset...')
